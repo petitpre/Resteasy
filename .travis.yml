@@ -1,8 +1,0 @@
-install:
- - mvn clean
-script:
- - mvn -B install
-
-language: java
-jdk:
-  - oraclejdk8

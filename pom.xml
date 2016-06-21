@@ -1,656 +1,165 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.jboss</groupId>
-        <artifactId>jboss-parent</artifactId>
-        <version>19</version>
-        <relativePath/>
+        <groupId>com.oreilly.rest.workbook</groupId>
+        <artifactId>jaxrs-2.0-workbook-pom</artifactId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-
-    <name>RESTEasy JAX-RS</name>
-    <description>
-        Resteasy
-    </description>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-    <groupId>org.jboss.resteasy</groupId>
-    <artifactId>resteasy-jaxrs-all</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <groupId>com.oreilly.rest.workbook</groupId>
+    <artifactId>jaxrs-2.0-workbook-ex10_2</artifactId>
+    <version>2.0</version>
+    <packaging>war</packaging>
+    <name>ex10_2</name>
+    <description/>
 
     <properties>
-        <dep.arquillian-bom.version>1.1.11.Final</dep.arquillian-bom.version>
-        <dep.arquillian-wildfly.version>8.2.1.Final</dep.arquillian-wildfly.version>
-        <jboss.home />
-        <!-- java 7-->
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.com.fasterxml.jackson>2.7.3</version.com.fasterxml.jackson>
-        <version.com.google.inject.guice>4.0</version.com.google.inject.guice>
-        <version.com.sun.mail>1.5.5</version.com.sun.mail>
-        <version.com.sun.xml.bind.jaxb-impl>2.2.7</version.com.sun.xml.bind.jaxb-impl>
-        <version.commons-io.commons-io>2.4</version.commons-io.commons-io>
-        <version.io.netty.netty>3.6.4.Final</version.io.netty.netty>
-        <version.io.netty.netty4>4.0.7.Final</version.io.netty.netty4>
-        <version.io.undertow>1.3.22.Final</version.io.undertow>
-        <version.javax.activation>1.1.1</version.javax.activation>
-        <version.javax.enterprise.cdi-api>1.2</version.javax.enterprise.cdi-api>
-        <version.javax.persistence>1.0.1.Final</version.javax.persistence>
-        <version.org.apache.httpcomponents.httpclient>4.5</version.org.apache.httpcomponents.httpclient>
-        <version.org.apache.httpcomponents.httpcore>4.4.4</version.org.apache.httpcomponents.httpcore>
-        <version.org.bouncycastle>1.52</version.org.bouncycastle>
-        <version.org.codehaus.jackson>1.9.13</version.org.codehaus.jackson>
-        <version.org.codehaus.jettison>1.3.3</version.org.codehaus.jettison>
-        <version.org.eclipse.jetty>9.2.13.v20150730</version.org.eclipse.jetty>
-        <version.org.glassfish.javax.el>3.0.1-b08</version.org.glassfish.javax.el>
-        <version.org.hibernate.hibernate-validator>5.1.3.Final</version.org.hibernate.hibernate-validator>
-        <version.org.infinispan>8.1.0.Final</version.org.infinispan>
-        <version.org.javassist>3.20.0-GA</version.org.javassist>
-        <version.org.jboss.logging.jboss-logging>3.3.0.Final</version.org.jboss.logging.jboss-logging>
-        <version.org.jboss.logging.jboss-logging-annotations>1.2.0.Final</version.org.jboss.logging.jboss-logging-annotations>
-        <version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.2_spec>1.0.0.Final</version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.2_spec>
-        <version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>1.0.5.Final</version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>
-        <version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.1_spec>1.0.0.Final</version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.1_spec>
-        <version.org.jboss.spec.javax.servlet.jboss-servlet-api_3.1_spec>1.0.0.Final</version.org.jboss.spec.javax.servlet.jboss-servlet-api_3.1_spec>
-        <version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec>1.0.0.Final</version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec>
-        <version.org.slf4j>1.7.7</version.org.slf4j>
-        <version.org.springframework.spring-webmvc>3.0.6.RELEASE</version.org.springframework.spring-webmvc>
-        <version.org.yaml.snakeyaml>1.17</version.org.yaml.snakeyaml>
-        <version.javax.validation-api>1.1.0.Final</version.javax.validation-api>
-        <version.jboss-javaee-6.0.spec>1.0.0.Final</version.jboss-javaee-6.0.spec>
+        <makitoo.version>0.0.17</makitoo.version>
     </properties>
-
-    <url>http://rest-easy.org</url>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:git://github.com/resteasy/Resteasy.git</connection>
-        <developerConnection>scm:git:git@github.com:resteasy/Resteasy.git</developerConnection>
-        <url>http://github.com/resteasy/Resteasy/tree/master/</url>
-    </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-    <issueManagement>
-        <system>JIRA</system>
-        <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
-    </issueManagement>
-
-    <developers>
-        <developer>
-            <id>rmcdonough</id>
-            <name>Ryan J. McDonough</name>
-            <email>ryan@damnhandy.com</email>
-            <url>http://damnhandy.com</url>
-            <roles>
-                <role>project-owner</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-        <developer>
-            <id>patriot1burke</id>
-            <name>Bill Burke</name>
-            <email>bill@burkecentral.com</email>
-            <organization>JBoss</organization>
-            <roles>
-                <role>project-owner</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-    </developers>
-
-    <profiles>
-        <profile>
-            <id>redhat-prod</id>
-            <modules>
-                <module>tjws</module>
-                <module>resteasy-test-data</module>
-                <module>resteasy-jaxrs</module>
-                <module>resteasy-client</module>
-                <module>resteasy-jaxrs-testsuite</module>
-                <module>providers</module>
-                <module>resteasy-bom</module>
-                <module>resteasy-cache</module>
-                <module>resteasy-guice</module>
-                <module>security</module>
-                <module>resteasy-links</module>
-                <module>resteasy-spring</module>
-                <module>resteasy-jsapi</module>
-                <module>resteasy-cdi</module>
-                <module>resteasy-servlet-initializer</module>
-                <module>server-adapters</module>
-                <module>async-http-servlet-3.0</module>
-                <module>jboss-modules</module>
-                <module>resteasy-wadl</module>
-                <module>arquillian</module>
-                <module>integration-tests</module>
-                <module>examples</module>
-            </modules>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jboss.jandex</groupId>
-                        <artifactId>jandex-maven-plugin</artifactId>
-                        <version>1.0.3</version>
-                        <executions>
-                            <execution>
-                                <id>make-index</id>
-                                <goals>
-                                    <goal>jandex</goal>
-                                </goals>
-                                <!-- phase is 'process-classes by default' -->
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>travis-ci</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-                <module>tjws</module>
-                <module>resteasy-test-data</module>
-                <module>resteasy-jaxrs</module>
-                <module>resteasy-client</module>
-                <module>resteasy-jaxrs-testsuite</module>
-                <module>providers</module>
-                <module>resteasy-bom</module>
-                <module>resteasy-cache</module>
-                <module>resteasy-guice</module>
-                <module>security</module>
-                <module>resteasy-links</module>
-                <module>resteasy-spring</module>
-                <module>resteasy-jsapi</module>
-                <module>resteasy-cdi</module>
-                <module>resteasy-servlet-initializer</module>
-                <module>server-adapters</module>
-                <module>async-http-servlet-3.0</module>
-                <module>jboss-modules</module>
-                <module>resteasy-wadl</module>
-                <module>arquillian</module>
-                <module>integration-tests</module>
-                <module>examples</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>jsapi-testing</id>
-            <modules>
-                <module>tjws</module>
-                <module>resteasy-test-data</module>
-                <module>resteasy-jaxrs</module>
-                <module>resteasy-client</module>
-                <module>resteasy-jaxrs-testsuite</module>
-                <module>providers</module>
-                <module>resteasy-bom</module>
-                <module>resteasy-cache</module>
-                <module>resteasy-guice</module>
-                <module>security</module>
-                <module>resteasy-links</module>
-                <module>resteasy-spring</module>
-                <module>resteasy-jsapi</module>
-                <module>resteasy-jsapi-testing</module>
-                <module>resteasy-cdi</module>
-                <module>resteasy-servlet-initializer</module>
-                <module>server-adapters</module>
-                <module>async-http-servlet-3.0</module>
-                <module>jboss-modules</module>
-                <module>resteasy-wadl</module>
-                <module>arquillian</module>
-                <module>integration-tests</module>
-            </modules>
-        </profile>
-    </profiles>
-
-    <contributors>
-        <contributor>
-            <name>Heiko Braun</name>
-        </contributor>
-        <contributor>
-            <name>Martin Algesten</name>
-        </contributor>
-    </contributors>
-
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${version.org.slf4j}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-simple</artifactId>
-                <version>${version.org.slf4j}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${version.org.slf4j}</version>
-            </dependency>
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>1.2.17</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${version.org.hibernate.hibernate-validator}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.logging</groupId>
-                <artifactId>jboss-logging</artifactId>
-                <version>${version.org.jboss.logging.jboss-logging}</version>
-                <!--<scope>provided</scope> todo this should be provided-->
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.logging</groupId>
-                <artifactId>jboss-logging-annotations</artifactId>
-                <version>${version.org.jboss.logging.jboss-logging-annotations}</version>
-                <scope>provided</scope>
-                <optional>true</optional>
-            </dependency>
-            
-            <dependency>
-                <groupId>org.jboss.logging</groupId>
-                <artifactId>jboss-logging-processor</artifactId>
-                <version>${version.org.jboss.logging.jboss-logging-annotations}</version>
-                <scope>provided</scope>
-                <optional>true</optional>
-            </dependency>
-
-            <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>${version.org.javassist}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.spec.javax.annotation</groupId>
-                <artifactId>jboss-annotations-api_1.2_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.annotation.jboss-annotations-api_1.2_spec}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.spec.javax.ws.rs</groupId>
-                <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.spec.javax.ejb</groupId>
-                <artifactId>jboss-ejb-api_3.1_spec</artifactId>
-                <scope>provided</scope>
-                <version>${version.org.jboss.spec.javax.ejb.jboss-ejb-api_3.1_spec}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-impl</artifactId>
-                <version>${version.com.sun.xml.bind.jaxb-impl}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>javax.mail</artifactId>
-                <version>${version.com.sun.mail}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.xml.stream</groupId>
-                <artifactId>sjsxp</artifactId>
-                <version>1.0.1</version>
-                <exclusions>
-                    <!-- This results in duplicate stax-api jars. This is the older
-            one. A newer is brought in by com.sun.xml.bind:jaxb-impl -->
-                    <exclusion>
-                        <groupId>stax</groupId>
-                        <artifactId>stax-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.sun.xml.fastinfoset</groupId>
-                <artifactId>FastInfoset</artifactId>
-                <version>1.2.13</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-io</groupId>
-	            <artifactId>commons-io</artifactId>
-                <version>${version.commons-io.commons-io}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.0-api</artifactId>
-                <version>${version.javax.persistence}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${version.org.apache.httpcomponents.httpclient}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>${version.org.apache.httpcomponents.httpcore}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.jcip</groupId>
-                <artifactId>jcip-annotations</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jettison</groupId>
-                <artifactId>jettison</artifactId>
-                <version>${version.org.codehaus.jettison}</version>
-                <exclusions>
-                    <!-- This results in duplicate stax-api jars. This is the older
-            one. A newer is brought in by com.sun.xml.bind:jaxb-impl -->
-                    <exclusion>
-                        <groupId>stax</groupId>
-                        <artifactId>stax-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.activation</groupId>
-                <artifactId>activation</artifactId>
-                <version>${version.javax.activation}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>${version.javax.validation-api}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty</artifactId>
-                <version>${version.io.netty.netty}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${version.io.netty.netty4}</version>
-            </dependency>
-            <!--
-            We forked it for now because of startup/shutdown race conditions
-
-                        <dependency>
-                            <groupId>tjws</groupId>
-                            <artifactId>webserver</artifactId>
-                            <version>1.7.0</version>
-                        </dependency>
-            -->
-            <dependency>
-                <groupId>io.undertow</groupId>
-                <artifactId>undertow-servlet</artifactId>
-                <version>${version.io.undertow}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.undertow</groupId>
-                <artifactId>undertow-core</artifactId>
-                <version>${version.io.undertow}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jyaml</groupId>
-                <artifactId>jyaml</artifactId>
-                <version>1.3</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.enterprise</groupId>
-                <artifactId>cdi-api</artifactId>
-                <version>${version.javax.enterprise.cdi-api}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>javax.json</groupId>
-                <artifactId>javax.json-api</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.3</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.spec.javax.servlet</groupId>
-                <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.servlet.jboss-servlet-api_3.1_spec}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.james</groupId>
-                <artifactId>apache-mime4j</artifactId>
-                <version>0.6</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.google.inject</groupId>
-                <artifactId>guice</artifactId>
-                <version>${version.com.google.inject.guice}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.jaxrs</groupId>
-                <artifactId>jackson-jaxrs-json-provider</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.jaxrs</groupId>
-                <artifactId>jackson-jaxrs-base</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <!-- also need JAXB annotation support -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-jaxb-annotations</artifactId>
-                <version>${version.com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-core-asl</artifactId>
-                <version>${version.org.codehaus.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-mapper-asl</artifactId>
-                <version>${version.org.codehaus.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-xc</artifactId>
-                <version>${version.org.codehaus.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-jaxrs</artifactId>
-                <version>${version.org.codehaus.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.cache</groupId>
-                <artifactId>jbosscache-core</artifactId>
-                <version>3.2.5.GA</version>
-            </dependency>
-            <dependency>
-                <groupId>org.infinispan</groupId>
-                <artifactId>infinispan-core</artifactId>
-                <version>${version.org.infinispan}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.infinispan</groupId>
-                <artifactId>infinispan-tree</artifactId>
-                <version>${version.org.infinispan}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${version.org.bouncycastle}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcmail-jdk15on</artifactId>
-                <version>${version.org.bouncycastle}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcpkix-jdk15on</artifactId>
-                <version>${version.org.bouncycastle}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${version.org.springframework.spring-webmvc}</version>
-            </dependency>
-            <dependency>
-	            <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${version.org.yaml.snakeyaml}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.oauth.core</groupId>
-                <artifactId>oauth-provider</artifactId>
-                <version>20100527</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!-- Required by Hibernate Validator 5.x for testing -->
-            <dependency>
-                <groupId>org.jboss.spec.javax.el</groupId>
-                <artifactId>jboss-el-api_3.0_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-6.0</artifactId>
-                <version>${version.jboss-javaee-6.0.spec}</version>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.el</artifactId>
-                <version>${version.org.glassfish.javax.el}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <repositories>
         <repository>
-            <id>jboss</id>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+            <id>makitoo</id>
+            <url>https://dashboard.makitoo.com/repo</url>
         </repository>
     </repositories>
     <pluginRepositories>
+        <pluginRepository>
+            <id>makitoo</id>
+            <url>https://dashboard.makitoo.com/repo</url>
+        </pluginRepository>
     </pluginRepositories>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.makitoo</groupId>
+            <artifactId>makitoo-library-java</artifactId>
+            <version>${makitoo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>async-http-servlet-3.0</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxb-provider</artifactId>
+            <version>3.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${version.surefire.plugin}</version>
-                    <configuration>
-                        <forkMode>once</forkMode>
-                        <argLine>-Xms512m -Xmx512m</argLine>
-                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${version.javadoc.plugin}</version>
-                    <configuration>
-                        <minmemory>128m</minmemory>
-                        <maxmemory>1024m</maxmemory>
-                        <quiet>false</quiet>
-                        <aggregate>true</aggregate>
-                        <excludePackageNames>
-                            com.restfully.*:org.jboss.resteasy.examples.*:se.unlogic.*:org.jboss.resteasy.tests.*
-                        </excludePackageNames>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.eclipse.jetty</groupId>
-                    <artifactId>jetty-maven-plugin</artifactId>
-                    <version>${version.org.eclipse.jetty}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <finalName>ex10_2</finalName>
         <plugins>
+
             <plugin>
-                <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-clover2-plugin</artifactId>
+                <groupId>com.makitoo</groupId>
+                <artifactId>makitoo-maven-plugin</artifactId>
+                <version>${makitoo.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <compliance>8</compliance>
+                    <modules>
+                        <module>com.makitoo.handled.HandledModule</module>
+                        <module>com.makitoo.callback.CallbackModule</module>
+                        <module>com.makitoo.hotcatches.HotFixesModule</module>
+                        <module>com.makitoo.npe.NpeModule</module>
+                        <module>com.makitoo.loop.LoopModule</module>
+                    </modules>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${version.org.eclipse.jetty}</version>
                 <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>src/main/resources</directory>
-                            <includes>
-                                <include>org/**</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>surefire-it</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
