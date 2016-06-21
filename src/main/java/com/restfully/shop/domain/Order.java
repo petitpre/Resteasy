@@ -85,4 +85,13 @@ public class Order
       this.customer = customer;
    }
 
+   @Override
+   public String toString() {
+      return "Order{" +
+              "id=" + id +
+              ", total='" + total + '\'' +
+              ", date='" + date + '\'' +
+              ", customer=" + customer +
+              '}';
+   }
 }
