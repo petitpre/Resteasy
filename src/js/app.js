@@ -5,7 +5,7 @@ app.get('/search', function (req, res) {
     var value = req.param("value");
     console.log("search for " + value);
     if ("Bill" ==  value) {
-        res.send({firstname:'Bill', name:'Burke', id: 0});
+        res.send({firstname:'Bill', lastname:'Burke', id: 0});
     } else {
         req.status(404);
     }

@@ -16,7 +16,7 @@
     <description/>
 
     <properties>
-        <makitoo.version>0.0.16</makitoo.version>
+        <makitoo.version>0.0.17</makitoo.version>
     </properties>
     <repositories>
         <repository>
@@ -165,8 +165,8 @@
                                 <module>com.makitoo.handled.HandledModule</module>
                                 <module>com.makitoo.callback.CallbackModule</module>
                                 <module>com.makitoo.hotcatches.HotFixesModule</module>
-                                <module>com.makitoo.npe.NpeModule</module>
-                                <module>com.makitoo.loop.LoopModule</module>
+                                <!--<module>com.makitoo.npe.NpeModule</module>-->
+                                <!--<module>com.makitoo.loop.LoopModule</module>-->
                             </modules>
                         </configuration>
                     </plugin>

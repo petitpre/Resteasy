@@ -15,12 +15,13 @@ public class ShoppingApplication extends Application {
 
     public ShoppingApplication() {
 
-        Makitoo makitoo =  com.makitoo.MakitooJava.init(
-                "https://dashboard.makitoo.com/rest",
-                "testjaxrs-eb0d369a-168b-445f-b7de-6e41ce1de02e",   // Application ID
-                "j068qk8j8npvas4fmcihu5f8ms",                     // Application token
-                "0.0.1"                                           // Current version of your application
-        );
+        com.makitoo.MakitooJava.init(
+                    "https://dashboard.makitoo.com/rest",
+                    "testjaxrs-e5b9cad4-ae73-4147-b280-a793b40d313e",   // Application ID
+                    "cejgcf5putasgd4kb6ptnl7iu2",                     // Application token
+                    "0.0.3"                                           // Current version of your application
+            );
+
 
         singletons.add(new CustomerResource());
         singletons.add(new OrderResource());
