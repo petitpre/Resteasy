@@ -38,11 +38,15 @@ public class OrderResource
    {
       order.setId(idCounter.incrementAndGet());
       orderDB.put(order.getId(), order);
-      System.out.println("Created order " + order.getId());
+      logOrder(order);
       UriBuilder builder = uriInfo.getAbsolutePathBuilder();
       builder.path(Integer.toString(order.getId()));
       return Response.created(builder.build()).build();
 
+   }
+
+   private void logOrder(Order order) {
+      System.out.println("Created order " + order.getId() + " with total : " + Double.valueOf(order.getTotal()));
    }
 
    @GET

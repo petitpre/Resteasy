@@ -16,7 +16,30 @@
     <name>ex10_2</name>
     <description/>
 
+    <properties>
+        <makitoo.version>0.0.17</makitoo.version>
+    </properties>
+    <repositories>
+        <repository>
+            <id>makitoo</id>
+            <url>https://dashboard.makitoo.com/repo</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>makitoo</id>
+            <url>https://dashboard.makitoo.com/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>com.makitoo</groupId>
+            <artifactId>makitoo-library-java</artifactId>
+            <version>${makitoo.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
@@ -53,6 +76,31 @@
     <build>
         <finalName>ex10_2</finalName>
         <plugins>
+
+            <plugin>
+                <groupId>com.makitoo</groupId>
+                <artifactId>makitoo-maven-plugin</artifactId>
+                <version>${makitoo.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <compliance>8</compliance>
+                    <modules>
+                        <module>com.makitoo.handled.HandledModule</module>
+                        <module>com.makitoo.callback.CallbackModule</module>
+                        <module>com.makitoo.hotcatches.HotFixesModule</module>
+                        <module>com.makitoo.npe.NpeModule</module>
+                        <module>com.makitoo.loop.LoopModule</module>
+                    </modules>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
