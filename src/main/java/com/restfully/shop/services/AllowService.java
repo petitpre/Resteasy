@@ -11,7 +11,7 @@ import javax.ws.rs.client.ClientBuilder;
  */
 public class AllowService {
 
-    public int search(Customer customer) {
+    public int searchAllowId(Customer customer) {
         return parseAllowed(search(customer.getFirstName())).getId();
     }
 
