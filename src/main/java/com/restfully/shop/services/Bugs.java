@@ -19,10 +19,12 @@ import java.util.concurrent.TimeoutException;
 @Path("/bugs")
 public class Bugs {
 
-    private String exception() {
-        String toto = null;
-        System.out.println(toto.toLowerCase());
-        return toto;
+    private int count = 0;
+
+    private String exception(String name) {
+        count++;
+        System.out.println(name.toLowerCase());
+        return name.toLowerCase();
     }
 
     @GET
@@ -31,7 +33,7 @@ public class Bugs {
     @Formatted
     public Response handled() {
         try {
-            exception();
+            exception(null);
         } catch (RuntimeException ex) {
             ex.printStackTrace();
         }
@@ -44,7 +46,7 @@ public class Bugs {
     @Produces({"application/xml", "application/json"})
     @Formatted
     public Response unhandled() {
-        return Response.ok(exception()).build();
+        return Response.ok(exception(null)).build();
     }
 
     @GET
