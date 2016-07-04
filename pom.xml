@@ -92,31 +92,7 @@
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
-                    <!--<scanIntervalSeconds>10</scanIntervalSeconds>-->
-                    <!--<stopKey>foo</stopKey>-->
-                    <!--<stopPort>9999</stopPort>-->
-                    <!--<stopWait>10</stopWait>-->
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                        <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
-                            <daemon>true</daemon>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -145,6 +121,7 @@
         <profile>
             <id>makitoo</id>
             <build>
+                <directory>target-makitoo</directory>
                 <plugins>
 
                     <plugin>
@@ -161,12 +138,13 @@
                         </executions>
                         <configuration>
                             <compliance>8</compliance>
+                            <noClasspath>true</noClasspath>
                             <modules>
                                 <module>com.makitoo.handled.HandledModule</module>
                                 <module>com.makitoo.callback.CallbackModule</module>
-                                <module>com.makitoo.hotcatches.HotFixesModule</module>
-                                <!--<module>com.makitoo.npe.NpeModule</module>-->
-                                <!--<module>com.makitoo.loop.LoopModule</module>-->
+                                <module>com.makitoo.unhandled.UnhandledModule</module>
+                                <module>com.makitoo.npe.NpeModule</module>
+                                <module>com.makitoo.loop.LoopModule</module>
                             </modules>
                         </configuration>
                     </plugin>

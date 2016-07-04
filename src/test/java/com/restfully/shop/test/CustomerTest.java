@@ -22,7 +22,7 @@ import java.util.Date;
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
  * @version $Revision: 1 $
  */
-public class OrderResourceTest
+public class CustomerTest
 {
    private static Client client;
 
@@ -39,7 +39,7 @@ public class OrderResourceTest
    }
 
    @Test
-   public void testCreateCancelPurge() throws Exception
+   public void testCreateCustomer() throws Exception
    {
       String base = "http://localhost:8080/services/shop";
       Response response = client.target(base).request().head();

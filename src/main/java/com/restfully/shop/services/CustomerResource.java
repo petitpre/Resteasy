@@ -33,9 +33,9 @@ public class CustomerResource {
     @Consumes("application/xml")
     public Response createCustomer(Customer customer, @Context UriInfo uriInfo) {
         // check if customer is in blacklist
-        int result = new AllowService().search(customer);
-        if (result <0) return Response.status(401).build();
-        System.out.println(result);
+        int result = new AllowService().searchAllowId(customer);
+        if (result < 0) return Response.status(401).build();
+        System.out.println("allow id : " + result);
 
         customer.setId(idCounter.incrementAndGet());
         customerDB.put(customer.getId(), customer);
